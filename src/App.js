@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import MainSearch from "./components/MainSearch";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CityMeteo from "./components/CityMeteo";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainSearch />} />
+        <Route path="/detail/:cityCoord" element={<CityMeteo />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /* <header> 
+ </barra di ricerca>
+ </header>
+ <corpo con 4 localita>
+    <C.meteo card>
+      <badge per meteo,/>
+      <temperatura per mattina e sera/>
+      <link onclick per andare alla pagina dettagli localita,
+      che avra il meteo d>el giorno e del giorno successivo/>
+    </C.meteo card>x4 "hardcodate"
+  </corpo con 4 localita/>
+  </footer>  */
+}
